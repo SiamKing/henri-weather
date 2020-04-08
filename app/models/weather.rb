@@ -1,11 +1,14 @@
 class Weather
   include ActiveModel::Model
-  attr_accessor :current_temp, :low_temp, :high_temp
+  attr_accessor :current_temperature, :low_temperature, :high_temperature
 
-  def average_temp
-    ((@low_temp + @high_temp) / 2)
+  def average_temperature
+    ((@low_temperature + @high_temperature) / 2)
   end
 
-  def convert_temps
+  def convert_temperatures
+  end
+
+  def convert_temperature_to_fahrenheit(temperature)
   end
 end
