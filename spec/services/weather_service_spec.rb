@@ -21,6 +21,30 @@ RSpec.describe WeatherService, type: :service do
           end
         end
       end
+
+      context "when zipcode is not valid" do
+        it "responds with 404 code" do
+          VCR.use_cassette("invalid_zipcode") do
+            resp = weather_service.get_weather_by_zipcode("8528")
+            body = JSON.parse(resp.body, object_class: OpenStruct)
+
+            expect(resp.status).to eq 404
+            expect(body.message).to eq "city not found"
+          end
+        end
+      end
+
+      context "when zipcode is not present" do
+        it "responds with 400 code" do
+          VCR.use_cassette("no_zipcode") do
+            resp = weather_service.get_weather_by_zipcode("")
+            body = JSON.parse(resp.body, object_class: OpenStruct)
+
+            expect(resp.status).to eq 400
+            expect(body.message).to eq "Nothing to geocode"
+          end
+        end
+      end
     end
   end
 end
