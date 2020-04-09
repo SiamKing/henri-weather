@@ -10,6 +10,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-light fixed-top bg-light">
+      <a class="navbar-brand ml-5" href="/">
+        <%= image_tag "henri-logo", width: "140" %>
+      </a>
+    </nav>
+    <div class="container-fluid h-100 henri-background">
+      <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <div class="text-right">
+            <%= image_tag "henri-success.png" %>
+          </div>
+        </div>
+        <div class="col-7 text-center">
+          <div id="main-card" class="card">
+              <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
