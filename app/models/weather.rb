@@ -2,6 +2,10 @@ class Weather
   include ActiveModel::Model
   attr_accessor :current_temperature, :low_temperature, :high_temperature
 
+  def initialize(attributes)
+    attributes.each { |key, val| send("#{key}=", val) }
+  end
+
   def average_temperature
     ((@low_temperature.to_f + @high_temperature) / 2).round(2)
   end
