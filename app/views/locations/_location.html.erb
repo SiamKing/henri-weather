@@ -1,0 +1,10 @@
+<h4 class="d-inline-block">Current weather for <%= @location.zipcode %></h4>
+
+<% if @zipcode_saved %>
+    <p class="d-inline-block ml-3">Saved</p>
+<% else %>
+    <%= form_with model: @location, class: "d-inline-block ml-3" do |f| %>
+        <%= f.hidden_field(:zipcode, value: @location.zipcode) %>
+        <%= f.submit "Save", class: "btn btn-teal" %>
+    <% end %>
+<% end %>
