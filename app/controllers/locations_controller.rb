@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
       @zipcode_saved = true
       render "location"
     else
-      @error = "Something went wrong"
+      @error = "Whoops. Something went wrong. Please try again."
       render "location"
     end
   end
