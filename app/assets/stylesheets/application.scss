@@ -1,1 +1,19 @@
-@import("bootstrap")
+@import "bootstrap/scss/bootstrap";
+
+body, html {
+    height: 100%;
+    font-family: Montserrat, sans-serif;
+}
+
+.henri-background {
+    background: image_url("henri-background.png") no-repeat;
+    background-size: cover;
+    background-position-x: 10%;
+    background-position-y: center;
+}
+
+.card {
+    height: 320px;
+    width: 500px;
+    box-shadow: 1px 1px 2px #888;
+}
