@@ -7,6 +7,10 @@ class WeatherService
     resp = conn.get("weather", zip: zipcode, units: UNITS, appid: ENV["weather_app_id"])
   end
 
+  def parse_temps(body)
+    { current_temperature: body.temp, low_temperature: body.temp_min, high_temperature: body.temp_max }
+  end
+
   private
 
   def connect_to_weather_api
