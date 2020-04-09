@@ -1,2 +1,2 @@
-console.log("Hey")
+$("#card-title").html("<%= j render partial: "locations/location", locals: { location: @location, zipcode_saved: @zipcode_saved } %>")
 $("#card-body").html("<%= j render partial: "current_weather", locals: { weather: @weather, units: @units, zipcode: @zipcode, error: @error } %>")
