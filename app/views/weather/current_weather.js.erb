@@ -1,0 +1,2 @@
+console.log("Hey")
+$("#card-body").html("<%= j render partial: "current_weather", locals: { weather: @weather, units: @units, zipcode: @zipcode, error: @error } %>")

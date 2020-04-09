@@ -1,0 +1,10 @@
+  <% if @error %>
+    <p>Houston, we've had a problem...<%= @error %>. Please try again.</p>
+  <% elsif @weather %>
+    <p>Current weather: <%= @weather.current_temperature.round %>&#176 <%= @units %></p>
+    <p>Low Temperature: <%= @weather.low_temperature.round %>&#176 <%= @units %></p>
+    <p>High Temperature: <%= @weather.high_temperature.round %>&#176 <%= @units %></p>
+    <p>Average Temperature: <%= @weather.average_temperature.round %>&#176 <%= @units %></p>
+
+    
+  <% end %>
