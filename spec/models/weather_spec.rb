@@ -45,6 +45,15 @@ RSpec.describe Weather, type: :model do
         expect(weather_c.high_temperature).to eq 84.2
         expect(weather_c.average_temperature).to eq 77.0
       end
+
+      it "takes multiple fahrenheit temperatures and updates weather attributes to celsius" do
+        weather_f.convert_temperatures("C")
+
+        expect(weather_c.current_temperature).to eq 26.0
+        expect(weather_c.low_temperature).to eq 21.0
+        expect(weather_c.high_temperature).to eq 29.0
+        expect(weather_c.average_temperature).to eq 25.0
+      end
     end
 
     describe ".convert_temperature_to_fahrenheit" do
