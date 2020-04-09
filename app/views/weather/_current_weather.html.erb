@@ -1,10 +1,11 @@
   <% if @error %>
-    <p>Houston, we've had a problem...<%= @error %>. Please try again.</p>
-  <% elsif @weather %>
-    <p>Current weather: <%= @weather.current_temperature.round %>&#176 <%= @units %></p>
-    <p>Low Temperature: <%= @weather.low_temperature.round %>&#176 <%= @units %></p>
-    <p>High Temperature: <%= @weather.high_temperature.round %>&#176 <%= @units %></p>
-    <p>Average Temperature: <%= @weather.average_temperature.round %>&#176 <%= @units %></p>
+    <p>Houston, we've had a problem...<%= error %>. Please try again.</p>
+  <% elsif weather %>
+    <p>Current weather: <%= weather.current_temperature.round %>&#176 <%= units %></p>
+    <p>Low Temperature: <%= weather.low_temperature.round %>&#176 <%= units %></p>
+    <p>High Temperature: <%= weather.high_temperature.round %>&#176 <%= units %></p>
+    <p>Average Temperature: <%= weather.average_temperature.round %>&#176 <%= units %></p>
 
-    
+    <%= link_to "Update Weather", current_weather_path(zipcode: zipcode), class: "btn btn-teal",  remote: true %>
+    <%= link_to "Convert Units to #{@convert_units_to}", convert_temperatures_path(temperatures: {current_temperature: weather.current_temperature, low_temperature: weather.low_temperature, high_temperature: weather.high_temperature}, units: @convert_units_to, zipcode: zipcode), class: "btn btn-teal", remote:true %>
   <% end %>
