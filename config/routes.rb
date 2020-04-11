@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root "weather#home"
+  get "current_weather", to: "weather#current_weather"
+  get "convert_temperatures", to: "weather#convert_temperatures"
+  resources :locations, only: [:create]
 end

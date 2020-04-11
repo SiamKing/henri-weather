@@ -1,0 +1,53 @@
+@import "~bootstrap/scss/bootstrap";
+
+body,
+html {
+    height: 100%;
+    font-family: Montserrat, sans-serif;
+}
+
+.henri-background {
+    background: url("~images/henri-background.png") no-repeat;
+    background-size: cover;
+    background-position-x: 10%;
+    background-position-y: center;
+}
+
+.card {
+    height: 320px;
+    width: 500px;
+    box-shadow: 1px 1px 2px #888;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-grey {
+    background-color: #455a64;
+    color: white;
+}
+
+.btn-grey:hover {
+    background-color: white;
+    color: #455a64;
+    border-color: #455a64;
+}
+
+.btn-teal {
+    background-color: white;
+    color: #37cbba;
+    border-color: #37cbba;
+}
+
+.btn-teal:hover {
+    background-color: #37cbba;
+    color: white;
+    border-color: none;
+}
+
+.zipcode-input {
+    width: 312px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+}

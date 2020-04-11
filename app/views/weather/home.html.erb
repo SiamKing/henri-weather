@@ -1,0 +1,15 @@
+<div class="align-items-center justify-content-center">
+    <div id="card-title" class="card-title mt-4">
+        <h2>Hi! I'm Henri.</h2>
+        <h4 class="pt-2">Your Personal Weather Man</h4>
+    </div>
+    <div id="card-body" class="card-body mt-2">
+        <%= form_with url: "/current_weather", method: "get" do |f| %>
+            <%= f.text_field :zipcode, class: "form-control zipcode-input", placeholder: "Enter your zipcode" %>
+            <% if @zipcodes.any? %>
+                <%= f.collection_select :zipcode_select, @zipcodes, :to_s, :to_s, prompt: "Select Zipcode", class: "form-control" %>
+            <% end %>
+            <%= f.submit "Get Weather", class: "btn btn-grey ml-2" %>
+        <% end %>
+    </div>
+</div>

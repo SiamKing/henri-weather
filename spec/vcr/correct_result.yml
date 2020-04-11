@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openweathermap.org/data/2.5/weather?appid=ebb064ce75f44694206e534da5a924c8&units=imperial&zip=85281
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 09 Apr 2020 15:15:31 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '456'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?units=imperial&zip=85281"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-111.93,"lat":33.42},"weather":[{"id":801,"main":"Clouds","description":"few
+        clouds","icon":"02d"}],"base":"stations","main":{"temp":57.15,"feels_like":52.16,"temp_min":53.01,"temp_max":61,"pressure":1019,"humidity":58},"visibility":16093,"wind":{"speed":5.82,"deg":320},"clouds":{"all":20},"dt":1586444687,"sys":{"type":1,"id":5347,"country":"US","sunrise":1586437436,"sunset":1586483631},"timezone":-25200,"id":0,"name":"Tempe","cod":200}'
+    http_version: null
+  recorded_at: Thu, 09 Apr 2020 15:15:31 GMT
+recorded_with: VCR 5.1.0

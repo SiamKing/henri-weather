@@ -1,0 +1,2 @@
+$("#card-title").html("<%= j render partial: "locations/location", locals: { location: @location } %>")
+$("#card-body").html("<%= j render partial: "current_weather", locals: { weather: @weather, error: @error } %>")
