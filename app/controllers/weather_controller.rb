@@ -14,8 +14,6 @@ class WeatherController < ApplicationController
       @zipcode_saved = Location.find_by(zipcode: @zipcode)
       temps = weather_service.parse_temps(body.main)
       @weather = Weather.new(temps)
-      @units = "F"
-      @convert_units_to = "C"
     else
       @error = body.message
       render "home"
@@ -24,10 +22,10 @@ class WeatherController < ApplicationController
 
   def convert_temperatures
     @zipcode = params[:zipcode]
-    @units = params[:units]
-    @weather = Weather.new(params[:temperatures])
-    @weather.convert_temperatures(@units)
-    @convert_units_to = @units == "F" ? "C" : "F"
+    units = params[:units]
+    temperatures = params[:temperatures]
+    @weather = Weather.new(temperatures, units)
+    @weather.convert_temperatures(units, temperatures)
     render "convert_temperatures"
   end
 end
