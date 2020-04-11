@@ -3,8 +3,9 @@ require "rails_helper"
 RSpec.describe Weather, type: :model do
   temperatures_fahrenheit = { current_temperature: 78.8, low_temperature: 69.8, high_temperature: 84.2 }
   temperatures_celsius = { current_temperature: 26, low_temperature: 21, high_temperature: 29 }
-  let (:weather_f) { Weather.new(temperatures_fahrenheit) }
-  let (:weather_c) { Weather.new(temperatures_celsius, "C") }
+  zipcode = "85281"
+  let (:weather_f) { Weather.new(temperatures_fahrenheit, zipcode) }
+  let (:weather_c) { Weather.new(temperatures_celsius, "C", zipcode) }
 
   describe "Weather object" do
     it "has a current temperature" do
@@ -21,6 +22,10 @@ RSpec.describe Weather, type: :model do
 
     it "has a units attribute" do
       expect(weather_f.units).to eq "F"
+    end
+
+    it "has a zipcode" do
+      expect(weather_f.zipcode).to eq "85281"
     end
   end
 

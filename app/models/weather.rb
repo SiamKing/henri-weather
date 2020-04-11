@@ -1,10 +1,11 @@
 class Weather
   include ActiveModel::Model
-  attr_accessor :current_temperature, :low_temperature, :high_temperature, :units
+  attr_accessor :current_temperature, :low_temperature, :high_temperature, :units, :zipcode
 
-  def initialize(attributes, units = "F")
+  def initialize(attributes, units = "F", zipcode)
     attributes.each { |key, val| send("#{key}=", val) }
     @units = units
+    @zipcode = zipcode
   end
 
   def average_temperature
