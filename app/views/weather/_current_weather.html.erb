@@ -6,6 +6,6 @@
     <p>High Temperature: <%= weather.high_temperature.round %><%= degrees(weather.units) %></p>
     <p>Average Temperature: <%= weather.average_temperature.round %><%= degrees(weather.units) %></p>
 
-    <%= link_to "Update Weather", current_weather_path(zipcode: zipcode), class: "btn btn-teal",  remote: true %>
-    <%= link_to "Convert Units to #{weather.convert_units_to}", convert_temperatures_path(temperatures: {current_temperature: weather.current_temperature, low_temperature: weather.low_temperature, high_temperature: weather.high_temperature}, units: weather.convert_units_to, zipcode: zipcode), class: "btn btn-teal", remote:true %>
+    <%= link_to "Update Weather", current_weather_path(zipcode: weather.zipcode), class: "btn btn-teal",  remote: true %>
+    <%= link_to "Convert Units to #{weather.convert_units_to}", convert_temperatures_path(temperatures: {current_temperature: weather.current_temperature, low_temperature: weather.low_temperature, high_temperature: weather.high_temperature}, units: weather.convert_units_to, zipcode: weather.zipcode), class: "btn btn-teal", remote:true %>
   <% end %>
