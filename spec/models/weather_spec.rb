@@ -4,7 +4,7 @@ RSpec.describe Weather, type: :model do
   temperatures_fahrenheit = { current_temperature: 78.8, low_temperature: 69.8, high_temperature: 84.2 }
   temperatures_celsius = { current_temperature: 26, low_temperature: 21, high_temperature: 29 }
   let (:weather_f) { Weather.new(temperatures_fahrenheit) }
-  let (:weather_c) { Weather.new(temperatures_celsius) }
+  let (:weather_c) { Weather.new(temperatures_celsius, "C") }
 
   describe "Weather object" do
     it "has a current temperature" do
@@ -17,6 +17,10 @@ RSpec.describe Weather, type: :model do
 
     it "has a high temperature" do
       expect(weather_f.high_temperature).to eq 84.2
+    end
+
+    it "has a units attribute" do
+      expect(weather_f.units).to eq "F"
     end
   end
 
@@ -38,7 +42,7 @@ RSpec.describe Weather, type: :model do
 
     describe ".convert_temperatures" do
       it "takes multiple celsius temperatures and updates weather attributes to fahrenheit" do
-        weather_c.convert_temperatures("F")
+        weather_c.convert_temperatures("F", temperatures_celsius)
 
         expect(weather_c.current_temperature).to eq 78.8
         expect(weather_c.low_temperature).to eq 69.8
@@ -47,7 +51,7 @@ RSpec.describe Weather, type: :model do
       end
 
       it "takes multiple fahrenheit temperatures and updates weather attributes to celsius" do
-        weather_f.convert_temperatures("C")
+        weather_f.convert_temperatures("C", temperatures_fahrenheit)
 
         expect(weather_c.current_temperature).to eq 26.0
         expect(weather_c.low_temperature).to eq 21.0

@@ -1,20 +1,25 @@
 class Weather
   include ActiveModel::Model
-  attr_accessor :current_temperature, :low_temperature, :high_temperature
+  attr_accessor :current_temperature, :low_temperature, :high_temperature, :units
 
-  def initialize(attributes)
+  def initialize(attributes, units = "F")
     attributes.each { |key, val| send("#{key}=", val) }
+    @units = units
   end
 
   def average_temperature
     ((@low_temperature.to_f + @high_temperature) / 2).round(2)
   end
 
-  def convert_temperatures(units)
+  def convert_units_to
+    units == "F" ? "C" : "F"
+  end
+
+  def convert_temperatures(units, temps)
     if units == "F"
-      as_json.each { |k, v| send("#{k}=", convert_temperature_to_fahrenheit(v)) }
+      temps.each { |k, v| send("#{k}=", convert_temperature_to_fahrenheit(v)) }
     else
-      as_json.each { |k, v| send("#{k}=", convert_temperature_to_celsius(v)) }
+      temps.each { |k, v| send("#{k}=", convert_temperature_to_celsius(v)) }
     end
   end
 
