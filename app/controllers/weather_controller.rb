@@ -11,7 +11,7 @@ class WeatherController < ApplicationController
 
     if resp.success?
       @location = Location.new(zipcode: zipcode)
-      @zipcode_saved = Location.find_by(zipcode: zipcode)
+      @location.zipcode_saved = Location.find_by(zipcode: zipcode)
       temps = weather_service.parse_temps(body.main)
       @weather = Weather.new(temps, zipcode)
     else
